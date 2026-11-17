@@ -1,0 +1,35 @@
+name: Publicar demo HidroLog
+on:
+  push:
+    branches: [main]
+    paths:
+      - '00 Code/visor/**'
+      - '02 Input/DEMO_*.wpcx'
+      - '.github/workflows/publicar-pages.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/configure-pages@v5
+      - name: Preparar archivos ficticios
+        run: |
+          mkdir -p "03 Output/PAGES"
+          cp "00 Code/visor/"* "03 Output/PAGES/"
+          cp "02 Input/DEMO_A.wpcx" "02 Input/DEMO_B.wpcx" "03 Output/PAGES/"
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: '03 Output/PAGES'
+      - id: deployment
+        uses: actions/deploy-pages@v4

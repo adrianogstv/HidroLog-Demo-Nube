@@ -1,0 +1,12 @@
+03 Output/
+__pycache__/
+*.pyc
+.env
+.env.*
+*.jks
+*.pem
+*.key
+*.exe
+*.apk
+node_modules/
+target/
