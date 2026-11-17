@@ -1,3 +1,4 @@
+import {aplicarDashboard,bloquearDashboard} from './dashboard-loader.mjs';
 import {decryptEnvelope,importPassword} from './protocol.mjs';
 const $=id=>document.getElementById(id);
 let material=null,lastOperation=null,busy=false,generation=0,archive=null;
@@ -6,6 +7,7 @@ const requested=new URLSearchParams(location.search).get('cliente');if(validClie
 const fmt=n=>Number(n).toLocaleString('es-PE',{maximumFractionDigits:2});
 const date=s=>new Date(s).toLocaleString('es-PE',{timeZone:'America/Lima'})+' · Lima';
 function clear(){
+  bloquearDashboard();
   material=null;archive=null;$('download').disabled=true;lastOperation=null;generation++;busy=false;$('password').value='';$('rows').replaceChildren();
   for(const id of ['meters','runs','recovery','holes','published','read','project-label'])$(id).textContent='—';
   $('viewer').hidden=true;$('lock').hidden=true;$('gate').hidden=false;$('unlock').disabled=false;$('refresh').disabled=false;
@@ -31,7 +33,7 @@ async function read(candidate=material,unlock=false){
       let payload;
       try{payload=await decryptEnvelope(envelope,candidate);}catch{const e=Error('No se pudo descifrar');e.unlock=true;throw e;}
       if(version!==generation)return;
-      material=candidate;lastOperation=envelope.operation_id;render(payload);
+      material=candidate;lastOperation=envelope.operation_id;render(payload);aplicarDashboard(payload,candidate);
     }
     $('read').textContent=date(new Date().toISOString());$('status').classList.remove('error');$('status').textContent='Última versión consultada. El remitente actualiza al pulsar Subir a la nube.';
   }catch(e){
