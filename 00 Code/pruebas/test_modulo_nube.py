@@ -83,6 +83,16 @@ console.log('OK Web Crypto: compatibilidad Python y rechazo de contraseña incor
     def test_invalid_source_never_queued(self):
         with self.assertRaises(Exception):cloud.enqueue(ROOT/'README.md',self.password,self.folder)
         self.assertEqual(len(list(self.folder.glob('*.json'))),0)
+    def test_pending_snapshot_sent_before_newer(self):
+        from generar_demo import create_package
+        old=cloud.enqueue(ROOT/'02 Input'/'DEMO_A.wpcx',self.password,self.folder)
+        changed=create_package('a',self.folder/'A_nuevo.wpcx',extra=True)
+        api=API();result=cloud.publish(changed,self.password,self.folder,api=api)
+        self.assertTrue(result['ok']);self.assertTrue(cloud.receipt_path(old).exists())
+        self.assertEqual(api.writes,2)
+        latest=json.loads(base64.b64decode(next(iter(api.files.values()))))
+        payload=cloud.decrypt(latest,self.password)
+        self.assertEqual(sum(h['logged_m'] for h in payload['project']['holes']),24)
 
 
 if __name__=='__main__':unittest.main(verbosity=2)

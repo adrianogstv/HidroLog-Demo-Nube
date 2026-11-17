@@ -19,6 +19,8 @@ El botón publica MANUALMENTE. No hay sincronización automática dentro de Hidr
 
 En esta máquina se entrega un acceso local bajo 03 Output/ABRIR_MODULO_NUBE_PC.cmd. Abre la ventana auxiliar con el botón exacto «Subir a la nube».
 
+Para el compañero, el kit incluye 00 Code/herramientas/ABRIR_MODULO.cmd, que utiliza el Python instalado en su PC; primero debe instalar los requisitos del módulo y disponer de una sesión Git con permiso de publicación. No contiene rutas de esta máquina ni contraseñas.
+
 1. Haz una COPIA de 02 Input/DEMO_A.wpcx en una carpeta exclusiva de pruebas.
 2. Abre esa copia con «Abrir proyecto» en HidroLog PC 2.0.4. No la importes en un proyecto real.
 3. Modifica una recuperación o añade una corrida contigua dentro de un sondaje ficticio existente. Guarda.
