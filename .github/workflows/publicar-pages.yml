@@ -26,7 +26,7 @@ jobs:
       - name: Preparar archivos ficticios
         run: |
           mkdir -p "03 Output/PAGES"
-          cp "00 Code/visor/"* "03 Output/PAGES/"
+          cp -R "00 Code/visor/." "03 Output/PAGES/"
           cp "02 Input/DEMO_A.wpcx" "02 Input/DEMO_B.wpcx" "03 Output/PAGES/"
       - uses: actions/upload-pages-artifact@v4
         with:

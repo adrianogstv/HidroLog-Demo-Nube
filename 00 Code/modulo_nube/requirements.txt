@@ -1,0 +1,2 @@
+# Versión comprobada en esta entrega; instalar en un entorno del publicador.
+cryptography==50.0.1

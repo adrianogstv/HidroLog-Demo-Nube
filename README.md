@@ -4,6 +4,14 @@ Demo PÚBLICA, con datos ficticios generados desde cero. No incluye datos, insta
 
 Web: https://adrianogstv.github.io/HidroLog-Demo-Nube/
 
+## Módulo nuevo: botón Subir a la nube y visor con contraseña
+
+[Guía para integrar el módulo al software y al dashboard del compañero](01%20Docx/MODULO_SUBIR_NUBE.md).
+
+Visor protegido de la prueba: https://adrianogstv.github.io/HidroLog-Demo-Nube/protegido/?cliente=a . Los datos de esta ruta se cifran antes de enviarse. La contraseña se elige en el PC y no está en el código. El visor consulta nuevas publicaciones cada 30 segundos. No ofrece cuentas individuales ni autoriza cargar datos reales.
+
+Se entrega una ventana auxiliar funcional para probar el botón sin recompilar HidroLog, y adaptadores de código para integrarlo en Tauri. No se reemplaza la interfaz del programa existente. El adaptador Rust requiere compilación y revisión en el entorno del compañero.
+
 ## Probar desde el PC
 
 1. Descarga o clona este repositorio. Se requiere Python 3.9+ para el publicador.
