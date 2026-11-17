@@ -1,5 +1,5 @@
 {
-  "last_received_utc": null,
+  "last_received_utc": "2026-11-17T20:23:33+00:00",
   "projects": [
     {
       "client": "a",
@@ -23,12 +23,16 @@
             [
               9.0,
               12.0
+            ],
+            [
+              12.0,
+              15.0
             ]
           ],
-          "logged_m": 12.0,
-          "max_depth_m": 12.0,
-          "recovered_m": 10.8,
-          "runs": 4
+          "logged_m": 15.0,
+          "max_depth_m": 15.0,
+          "recovered_m": 13.5,
+          "runs": 5
         },
         {
           "code": "DEMO-A-02",
@@ -54,7 +58,7 @@
         }
       ],
       "label": "Cliente ficticio A",
-      "snapshot_hash": "df27a5d65773258dc0bb33ab92fec3a93c0b3a33f45382e2370226aa78a39c7a"
+      "snapshot_hash": "d571149687ad4b5a9917083b1eff3bc3db27d2b2330dc19ac926e41090f433b8"
     },
     {
       "client": "b",
