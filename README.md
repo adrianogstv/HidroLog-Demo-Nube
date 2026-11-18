@@ -1,3 +1,7 @@
+## Transferencia a otro GitHub y otra LLM
+
+La [guía de integración para el compañero](01%20Docx/GUIA_INTEGRACION_OTRO_GITHUB_20261117/README.md) explica la secuencia desde conectar su cuenta a la LLM hasta integrar el botón y publicar su dashboard. Se acompaña de un kit local configurable; no contiene la contraseña ni credenciales de esta demostración. Las rutas de implementación de la guía pertenecen a ese kit, no sustituyen la estructura histórica de este repositorio.
+
 # HidroLog · Prueba de escritorio y GitHub
 
 Demo PÚBLICA, con datos ficticios generados desde cero. No incluye datos, instaladores, fórmulas ni documentos de clientes. No es una versión productiva de HidroLog.
